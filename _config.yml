@@ -5,15 +5,15 @@
 # Site
 title: Easy Blog
 subtitle:
-description: Not everything can be keep in mind, so there is convenience to review??
+description: Not everything can be keep in mind, so there is convenience to review
 keywords:
 author: nil
-language: ZH
-timezone:
+language: zh-Hans
+timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://nildeveloper.com/
+url: http://nildeveloper.cn/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -54,9 +54,9 @@ index_generator:
   order_by: -date
   
 # Category & Tag
-default_category: uncategorized
+default_category: Easy
 category_map:
-tag_map:
+tag_map: Easy
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
@@ -73,7 +73,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -81,3 +81,20 @@ deploy:
   type: git
   repository: git@github.com:Null1132214759/Null1132214759.github.io.git
   branch: master
+  message: Site updated at {{ now('YYYY-MM-DD HH:mm:ss') }}
+
+#sitemap
+sitemap:
+  path: sitemap.xml
+  template:
+
+#feed
+atom:
+  type: atom
+  path: atom.xml
+  limit: 20
+
+#search
+search:
+  path: search.xml
+  field: post
