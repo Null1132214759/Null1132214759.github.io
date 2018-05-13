@@ -98,3 +98,13 @@ atom:
 search:
   path: search.xml
   field: post
+
+#menu
+menu:
+  home: /
+  categories: /categories
+  about: /about
+  archives: /archives
+  tags: /tags    //确保标签页已打开
+  #schedule: /schedule     
+  #commonweal: /404.html
