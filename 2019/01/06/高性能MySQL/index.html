@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java web," />
+  <meta name="keywords" content="数据库," />
 
 
 
@@ -95,18 +95,20 @@
 
 
 
-<meta name="description" content="Java web中Servlet、jsp、html互相访问的路径问题  在java web学习过程中经常出现 404 not found这种找不到网页的错误，究其原因，还是访问路径不正确。   在web项目中，访问路径主要分为两类：  绝对路径 相对路径  在写过如此多的demo之后，为防止意外，我个人还是建议使用绝对路径。 一般URL格式都是 http://localhost:8080/myap">
-<meta name="keywords" content="Java web">
+<meta name="description" content="高性能 MySQLMySQL 数据库逻辑架构图  每个虚线框为一层，总共三层。 第一层，服务层(为客户端服务):为请求做连接处理，授权认证，安全等。 第二层，核心层:查询解析，分析，优化，缓存，提供内建函数;存储过程，触发器，视图。 第三层，存储引擎层，不光做存储和提取数据，而且针对特殊数据引擎还要做事务处理。 事务ACID特性原子性：（atomicity） 一致性：（consistency）">
+<meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java web中路径访问问题">
-<meta property="og:url" content="http://nildeveloper.cn/2018/05/13/Java-web中路径访问问题/index.html">
+<meta property="og:title" content="高性能 MySQL">
+<meta property="og:url" content="http://nildeveloper.cn/2019/01/06/高性能MySQL/index.html">
 <meta property="og:site_name" content="Easy Blog">
-<meta property="og:description" content="Java web中Servlet、jsp、html互相访问的路径问题  在java web学习过程中经常出现 404 not found这种找不到网页的错误，究其原因，还是访问路径不正确。   在web项目中，访问路径主要分为两类：  绝对路径 相对路径  在写过如此多的demo之后，为防止意外，我个人还是建议使用绝对路径。 一般URL格式都是 http://localhost:8080/myap">
+<meta property="og:description" content="高性能 MySQLMySQL 数据库逻辑架构图  每个虚线框为一层，总共三层。 第一层，服务层(为客户端服务):为请求做连接处理，授权认证，安全等。 第二层，核心层:查询解析，分析，优化，缓存，提供内建函数;存储过程，触发器，视图。 第三层，存储引擎层，不光做存储和提取数据，而且针对特殊数据引擎还要做事务处理。 事务ACID特性原子性：（atomicity） 一致性：（consistency）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-13T08:34:43.089Z">
+<meta property="og:image" content="https://img-blog.csdn.net/20180823095032198?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpYmVydHkxMjM0NTY3OA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:updated_time" content="2019-01-09T04:54:53.324Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java web中路径访问问题">
-<meta name="twitter:description" content="Java web中Servlet、jsp、html互相访问的路径问题  在java web学习过程中经常出现 404 not found这种找不到网页的错误，究其原因，还是访问路径不正确。   在web项目中，访问路径主要分为两类：  绝对路径 相对路径  在写过如此多的demo之后，为防止意外，我个人还是建议使用绝对路径。 一般URL格式都是 http://localhost:8080/myap">
+<meta name="twitter:title" content="高性能 MySQL">
+<meta name="twitter:description" content="高性能 MySQLMySQL 数据库逻辑架构图  每个虚线框为一层，总共三层。 第一层，服务层(为客户端服务):为请求做连接处理，授权认证，安全等。 第二层，核心层:查询解析，分析，优化，缓存，提供内建函数;存储过程，触发器，视图。 第三层，存储引擎层，不光做存储和提取数据，而且针对特殊数据引擎还要做事务处理。 事务ACID特性原子性：（atomicity） 一致性：（consistency）">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180823095032198?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpYmVydHkxMjM0NTY3OA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 
 
 
@@ -136,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://nildeveloper.cn/2018/05/13/Java-web中路径访问问题/"/>
+  <link rel="canonical" href="http://nildeveloper.cn/2019/01/06/高性能MySQL/"/>
 
 
 
 
 
-  <title>Java web中路径访问问题 | Easy Blog</title>
+  <title>高性能 MySQL | Easy Blog</title>
   
 
 
@@ -313,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://nildeveloper.cn/2018/05/13/Java-web中路径访问问题/">
+    <link itemprop="mainEntityOfPage" href="http://nildeveloper.cn/2019/01/06/高性能MySQL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="nil">
@@ -330,7 +332,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Java web中路径访问问题</h2>
+          <h2 class="post-title" itemprop="name headline">高性能 MySQL</h2>
         
 
         <div class="post-meta">
@@ -342,8 +344,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-13T15:58:04+08:00">
-                2018-05-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-06T14:35:38+08:00">
+                2019-01-06
               </time>
             
 
@@ -352,6 +354,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -380,18 +404,210 @@
       
 
       
-        <h3 id="Java-web中Servlet、jsp、html互相访问的路径问题"><a href="#Java-web中Servlet、jsp、html互相访问的路径问题" class="headerlink" title="Java web中Servlet、jsp、html互相访问的路径问题"></a>Java web中Servlet、jsp、html互相访问的路径问题</h3><p>  在java web学习过程中经常出现 404 not found这种找不到网页的错误，究其原因，还是访问路径不正确。</p>
-<p>  在web项目中，访问路径主要分为两类：</p>
-<ol>
-<li>绝对路径</li>
-<li>相对路径</li>
+        <hr>
+<h1 id="高性能-MySQL"><a href="#高性能-MySQL" class="headerlink" title="高性能 MySQL"></a>高性能 MySQL</h1><h2 id="MySQL-数据库逻辑架构图"><a href="#MySQL-数据库逻辑架构图" class="headerlink" title="MySQL 数据库逻辑架构图"></a>MySQL 数据库逻辑架构图</h2><p><img src="https://img-blog.csdn.net/20180823095032198?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpYmVydHkxMjM0NTY3OA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"> </p>
+<p>每个虚线框为一层，总共三层。</p>
+<p>第一层，服务层(为客户端服务):为请求做连接处理，授权认证，安全等。</p>
+<p>第二层，核心层:查询解析，分析，优化，缓存，提供内建函数;存储过程，触发器，视图。</p>
+<p>第三层，存储引擎层，不光做存储和提取数据，而且针对特殊数据引擎还要做事务处理。</p>
+<h2 id="事务ACID特性"><a href="#事务ACID特性" class="headerlink" title="事务ACID特性"></a>事务ACID特性</h2><p>原子性：（atomicity）</p>
+<p>一致性：（consistency）</p>
+<p>隔离性：（isolation）</p>
+<p>持久性：（durability）</p>
+<h2 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h2><p><strong>ASNI SQL 隔离级别</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">隔离级别</th>
+<th style="text-align:center">脏读可能性</th>
+<th style="text-align:center">不可重复读可能性</th>
+<th style="text-align:center">幻读可能性</th>
+<th style="text-align:center">加锁读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">read uncommitted（未提交读）</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">no</td>
+</tr>
+<tr>
+<td style="text-align:center">read committed（提交读）</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">no</td>
+</tr>
+<tr>
+<td style="text-align:center">repeatable read（可重复读）</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">yes</td>
+<td style="text-align:center">no</td>
+</tr>
+<tr>
+<td style="text-align:center">serializable（可串行化）</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">no</td>
+<td style="text-align:center">no</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意</strong>：<u>事务隔离级别越低通常可执行更高的并发</u></p>
+<h2 id="MySQL-中存储引擎"><a href="#MySQL-中存储引擎" class="headerlink" title="MySQL 中存储引擎"></a>MySQL 中存储引擎</h2><h4 id="1-事务存储引擎"><a href="#1-事务存储引擎" class="headerlink" title="1. 事务存储引擎"></a>1. 事务存储引擎</h4><ol>
+<li>InnoDB</li>
+<li>NDB Cluster</li>
+<li>第三方： XtraDB 、PBXT 等</li>
 </ol>
-<p>在写过如此多的demo之后，为防止意外，我个人还是建议使用绝对路径。</p>
-<p>一般URL格式都是 <a href="http://localhost:8080/myapp/**" target="_blank" rel="noopener">http://localhost:8080/myapp/**</a>*</p>
-<p><code>String path = request.getContextPath();</code> 获取到的就是 /myapp</p>
-<p>可以将其放入到request域中，然后在页面请求中添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.setAttribute(&quot;APP_PATH&quot;,path);</span><br></pre></td></tr></table></figure>
-<p>调用时直接用EL表达式取出值：${APP_PATH}</p>
+<p><strong>注意</strong>： MySQL 默认开启 AUTOCOMMIT，若不显示开启一个事务，则每个查询被当作一个事务执行提交操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &apos;autocommit&apos;;</span><br><span class="line">+---------------+-------+</span><br><span class="line">| Variable_name | Value |</span><br><span class="line">+---------------+-------+</span><br><span class="line">| autocommit    | ON    |</span><br><span class="line">+---------------+-------+</span><br><span class="line">1 row in set (0.52 sec)</span><br></pre></td></tr></table></figure>
+<p>查询表相关信息： 每个表对应一个 .frm 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mysql&gt; show table status like &apos;user&apos; \G;</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">           Name: user</span><br><span class="line">         Engine: InnoDB</span><br><span class="line">        Version: 10</span><br><span class="line">     Row_format: Dynamic</span><br><span class="line">           Rows: 7</span><br><span class="line"> Avg_row_length: 2340</span><br><span class="line">    Data_length: 16384</span><br><span class="line">Max_data_length: 0</span><br><span class="line">   Index_length: 0</span><br><span class="line">      Data_free: 0</span><br><span class="line"> Auto_increment: NULL</span><br><span class="line">    Create_time: 2018-07-07 16:32:53</span><br><span class="line">    Update_time: NULL</span><br><span class="line">     Check_time: NULL</span><br><span class="line">      Collation: utf8_general_ci</span><br><span class="line">       Checksum: NULL</span><br><span class="line"> Create_options: </span><br><span class="line">        Comment: </span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<h4 id="2-MySQL-中主要存储引擎"><a href="#2-MySQL-中主要存储引擎" class="headerlink" title="2. MySQL 中主要存储引擎"></a>2. MySQL 中主要存储引擎</h4><ol>
+<li><p><strong>InnoDB：</strong>采用MVCC （多版本并发控制）支持高并发，基于聚簇索引建立，事务型存储引擎</p>
+</li>
+<li><p><strong>MyISAM：</strong>MySQL 5.1 及以前版本默认使用，不支持事务和行级锁，不支持崩溃后安全恢复</p>
+</li>
+<li><p><strong>MySQL内建其他存储引擎</strong></p>
+<ul>
+<li><p><strong>Archive 引擎</strong>： 只支持 INSERT 和 SELECT 操作，5.1 之前不支持索引，可实现高并发插入，</p>
+<p>适合 日志和数据采集类应用，或某些需要快速INSERT才注意的场合</p>
+</li>
+<li><p><strong>Blackhole引擎:</strong>为实现任何存储机制，适用于<u>复制架构</u>和<u>日志审核</u></p>
+</li>
+<li><p><strong>CSV引擎：</strong> 可以将普通CSV文件作为MySQL的表来处理，可做为一种数据交换机制</p>
+</li>
+<li><p><strong>Federated引擎：</strong> 联合引擎，访问MySQL服务器的一个代理</p>
+</li>
+<li><p><strong>Memory引擎：</strong> 数据保存在内存中，速度非常快，重启数据丢失，支持<u>hash索引</u></p>
+</li>
+<li><p><strong>Merge引擎：</strong> MyISAM引擎的一个变种，用于日志和数据仓库类应用</p>
+</li>
+<li><p><strong>NDB集群引擎：</strong> SQL 和 NDB 原生协议之间的接口</p>
+</li>
+</ul>
+</li>
+<li><p><strong>第三方存储引擎</strong></p>
+<ul>
+<li><p><strong>OLTP 类引擎</strong>： XtraDB 、 PBXT、 TokuDB（一种大数据存储引擎）、RethinkDB</p>
+<p>Falcon存储引擎</p>
+</li>
+<li><p><strong>面向列的存储引擎：</strong> MySQL默认面向行，但大数据量处理，面向列效率会更高。</p>
+<p>例如 Infobright，应用于数据分许和数据仓库，数据高度压缩，不支持索引</p>
+<p>InfiniDB，可在一组机器集群间做分布式查询</p>
+</li>
+</ul>
+</li>
+<li><p><strong>社区存储引擎</strong></p>
+</li>
+</ol>
+<h2 id="Schema-与-数据类型优化"><a href="#Schema-与-数据类型优化" class="headerlink" title="Schema 与 数据类型优化"></a>Schema 与 数据类型优化</h2><ol>
+<li><h4 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h4><p>两种类型的数字：整数（whole number）和实数（real number）</p>
+<p>若要存储整数：tinyint、smallin 、 mediumint、int、bigint</p>
+<p>分别使用         8        16            24         32    64 位存储空间</p>
+<p>unsigned 属性表示不允许负值，使正数的上限提升了一倍</p>
+<p><strong>注意：</strong> <u>能选择的都是存储类型，计算时会使用64位 bigint计算</u></p>
+</li>
+<li><h4 id="实数类型"><a href="#实数类型" class="headerlink" title="实数类型"></a>实数类型</h4><p>带有小数部分的数字。</p>
+<p><strong>flout</strong>、<strong>double</strong> 支持使用标准浮点运算进行近似运算</p>
+<p><strong>decimal</strong> 用于存储精确小数，支持精确计算（5.0 之后MySQL 自身实现）</p>
+<p>可指定小数点前后所允许的最大位数</p>
+<p><strong>注意：</strong> <u>计算时，MySQL 使用double进行计算</u></p>
+</li>
+<li><h4 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h4><p>varchar 与 char， 在磁盘和内存中的存储形式主要更存储引擎有关</p>
+<ul>
+<li><p><strong>varchar</strong> ：变长字符串，需要额外使用 1 个或 2 个字节（列最大长度大于255字节）</p>
+<p>来记录字符串的长度，但由于变成，在进行UPDATE操作是易造成碎片</p>
+</li>
+<li><p><strong>char</strong>：定长字符串，适用于存放短字符串，且MySQL会删除字符串末尾空格</p>
+<p><strong>注意：</strong> char 、varchar 是以字符为单位</p>
+</li>
+<li><p><strong>binary</strong></p>
+</li>
+<li><p><strong>varbinary</strong></p>
+<p>存储二进制字符串，存储的是<u>字节码</u>，使用 ‘\0’ 进行填充</p>
+</li>
+<li><p><strong>blob</strong>：二进制方式存取很大数据</p>
+<p>tinyblob、smallblob、（blob）、mediumblob、longblob、</p>
+</li>
+<li><p><strong>text</strong>：字符当时存取很大数据</p>
+<p>tinytext、smalltext、（text）、mediumtext、longtext</p>
+</li>
+</ul>
+</li>
+<li><h4 id="日期和时间类型"><a href="#日期和时间类型" class="headerlink" title="日期和时间类型"></a>日期和时间类型</h4><ul>
+<li><p><strong>datatime</strong>：能保存大范围的值，精度为s，把日期和时间封装到格式为YYYYMMDDHHMMSS</p>
+<p>的整数中，使用 <strong>8 个字节</strong>的存储空间。例如 ”2019-01-06 19:41:25“</p>
+</li>
+<li><p><strong>timestamp</strong>：保存了从1970-01-01午夜到现在的秒数，使用<strong>4个字节</strong>的存储空间（1970-2048）</p>
+<p>其值与时区有关</p>
+</li>
+</ul>
+</li>
+<li><h4 id="位数据类型"><a href="#位数据类型" class="headerlink" title="位数据类型"></a>位数据类型</h4><ul>
+<li><p><strong>bit</strong>：5.0 之前是tinyint 的同义词，5.0之后为一个新数据类型</p>
+<p>MySQL 将其当作字符串类型，而非数字类型</p>
+</li>
+<li><p><strong>set</strong>：MySQL内部是以一系列打包的为的集合来表示</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="加快-ALTER-TABLE-操作速度"><a href="#加快-ALTER-TABLE-操作速度" class="headerlink" title="加快 ALTER TABLE 操作速度"></a>加快 ALTER TABLE 操作速度</h2><p>MySQL 执行大部分修改表结构的操作的方法是用新的结构创建一个空表，从旧表中查出所有数据插入到</p>
+<p>新表中，然后删除旧表。</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; alter table sakila.film</span><br><span class="line">	-&gt; modify column rental_duration tinyint(3) not null default 5;</span><br></pre></td></tr></table></figure>
+<p>而实际上，MySQL  ALTER TABLE操作允许使用 ALTER COLUMN 、MODIFY COLUMN、CHANGE COLUMN语句</p>
+<p>修改列，则上述SQL 语句可以修改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; alter table sakila.film</span><br><span class="line">	-&gt; alter column rental_duration set default 5;</span><br></pre></td></tr></table></figure>
+<p>此语句会直接修改 .frm 文件而不涉及表数据</p>
+<h2 id="创建高性能索引"><a href="#创建高性能索引" class="headerlink" title="创建高性能索引"></a>创建高性能索引</h2><p>索引在MySQL 中也叫做 “键（key）”， 是存储引擎用于快速找到记录的一种数据结构</p>
+<p><strong>注意</strong>：索引是在存储引擎层，而非服务器层，不同存储引擎索引工作方式并不相同</p>
+<h4 id="1-索引的类型"><a href="#1-索引的类型" class="headerlink" title="1. 索引的类型"></a>1. 索引的类型</h4><ul>
+<li><p><strong>B-Tree 索引</strong></p>
+<p>若不特别指明类型，一般所说的索引都是B-Tree索引，使用B-Tree 数据结构进行存储，</p>
+<p>但不同存储引擎也可能使用不同的存储结构。适用于 全键值、键值范围和键值前缀查找</p>
+</li>
+<li><p><strong>哈希索引</strong></p>
+<p>基于哈希表实现，只有精确匹配索引所有的列的查询才有效，每一列对应一个不同的哈希码，</p>
+<p>哈希索引将所有的哈希码存储在哈希索引中，同时在哈希表中保存执行每个数据行的指针。</p>
+<p><strong>注意：</strong> 只有Memory 引擎显式支持哈希索引，且支持非唯一哈希索引</p>
+<p>InnoDB引擎可以在B-Tree索引基础上自动创建“自适应哈希索引”</p>
+</li>
+<li><p><strong>空间数据索引（R-Tree）</strong></p>
+<p>MyISAM 表支持空间索引，可以用作地理数据存储。空间索引会从所有维度来索引数据</p>
+</li>
+<li><p><strong>全文索引</strong></p>
+<p>查找的是文本中的关键字，而非直接比较索引中的值。全文索引适用于 MATCH AGAIINST</p>
+<p>操作，而不是普通的WHERE条件查询</p>
+</li>
+<li><p><strong>其他索引类别</strong></p>
+<p>TokuDB 的 形树索引、ScaleDB的Patricia tries等</p>
+</li>
+</ul>
+<h4 id="2-索引的优点"><a href="#2-索引的优点" class="headerlink" title="2. 索引的优点"></a>2. 索引的优点</h4><ol>
+<li>大大减少了服务器需要扫描的数据量</li>
+<li>帮助服务器避免排序和临时表</li>
+<li>将随机IO变为顺序IO</li>
+</ol>
+<h2 id="MySQL-高级特性"><a href="#MySQL-高级特性" class="headerlink" title="MySQL 高级特性"></a>MySQL 高级特性</h2><p> MySQL 从 5.0 到 5.1 版本开始引入了很多新特性，例如分区、触发器等。</p>
+<ol>
+<li><p><strong>分区表</strong></p>
+<p>对于用户而言，分区表是一个独立的逻辑表，但底层由多个物理子表组成。</p>
+<p>分区表实际上是一组对底层表的句柄对象的封装。对分区表的请求，都会通过句柄</p>
+<p>对象转化为对存储引擎的接口调用。 分区表主要目的是将数据按照一个较粗的力度</p>
+<p>分布在不同表中，将相关数据存放在一起，也适用于批量删除整个分区的数据。</p>
+</li>
+<li><p><strong>视图</strong></p>
+<p>5.0 版本之后引入，MySQL 在很多地方对应视图和表是同等对待的，当然也有不同，</p>
+<p>l例如不能对视图创建触发器、不能对视图使用 drop table命令等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create view oceania as </span><br><span class="line">	-&gt;   seelct * from county where continent = &apos;Oceania&apos;</span><br><span class="line">	-&gt;   with check option;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">mysql&gt; select code, name from oceania where name = &apos;Australia&apos;;</span><br></pre></td></tr></table></figure>
+<p>MySQL 实现视图主要是使用<u>临时表算法</u> 和 <u>合并算法</u>。 若视图中包含 GROUP BY、DISTINCT、 任何聚集函数、UNION、子查询等，MySQL 都会使用临时表算法来实现视图，且此类视图都无法被更新。</p>
+</li>
+</ol>
 
       
     </div>
@@ -412,7 +628,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://nildeveloper.cn/2018/05/13/Java-web中路径访问问题/" title="Java web中路径访问问题">http://nildeveloper.cn/2018/05/13/Java-web中路径访问问题/</a>
+    <a href="http://nildeveloper.cn/2019/01/06/高性能MySQL/" title="高性能 MySQL">http://nildeveloper.cn/2019/01/06/高性能MySQL/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -427,7 +643,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java-web/" rel="tag"># Java web</a>
+            <a href="/tags/数据库/" rel="tag"># 数据库</a>
           
         </div>
       
@@ -445,8 +661,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/13/JS表单校验实例/" rel="next" title="JS表单校验实例">
-                <i class="fa fa-chevron-left"></i> JS表单校验实例
+              <a href="/2019/01/06/Java方向技术面试常见问题及答案/" rel="next" title="Java方向技术面试常见问题及答案">
+                <i class="fa fa-chevron-left"></i> Java方向技术面试常见问题及答案
               </a>
             
           </div>
@@ -455,8 +671,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/13/Java反射基础/" rel="prev" title="Java反射基础">
-                Java反射基础 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/09/Spring Boot笔记/" rel="prev" title="Spring Boot 学习笔记">
+                Spring Boot 学习笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -538,7 +754,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -549,7 +765,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -560,7 +776,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -610,7 +826,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-web中Servlet、jsp、html互相访问的路径问题"><span class="nav-number">1.</span> <span class="nav-text">Java web中Servlet、jsp、html互相访问的路径问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#高性能-MySQL"><span class="nav-number">1.</span> <span class="nav-text">高性能 MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-数据库逻辑架构图"><span class="nav-number">1.1.</span> <span class="nav-text">MySQL 数据库逻辑架构图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务ACID特性"><span class="nav-number">1.2.</span> <span class="nav-text">事务ACID特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隔离级别"><span class="nav-number">1.3.</span> <span class="nav-text">隔离级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-中存储引擎"><span class="nav-number">1.4.</span> <span class="nav-text">MySQL 中存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-事务存储引擎"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">1. 事务存储引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-MySQL-中主要存储引擎"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">2. MySQL 中主要存储引擎</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Schema-与-数据类型优化"><span class="nav-number">1.5.</span> <span class="nav-text">Schema 与 数据类型优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#整数类型"><span class="nav-number">1.5.0.1.</span> <span class="nav-text">整数类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实数类型"><span class="nav-number">1.5.0.2.</span> <span class="nav-text">实数类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串类型"><span class="nav-number">1.5.0.3.</span> <span class="nav-text">字符串类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#日期和时间类型"><span class="nav-number">1.5.0.4.</span> <span class="nav-text">日期和时间类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#位数据类型"><span class="nav-number">1.5.0.5.</span> <span class="nav-text">位数据类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加快-ALTER-TABLE-操作速度"><span class="nav-number">1.6.</span> <span class="nav-text">加快 ALTER TABLE 操作速度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建高性能索引"><span class="nav-number">1.7.</span> <span class="nav-text">创建高性能索引</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-索引的类型"><span class="nav-number">1.7.0.1.</span> <span class="nav-text">1. 索引的类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-索引的优点"><span class="nav-number">1.7.0.2.</span> <span class="nav-text">2. 索引的优点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL-高级特性"><span class="nav-number">1.8.</span> <span class="nav-text">MySQL 高级特性</span></a></li></ol></li></ol></div>
             
 
           </div>
