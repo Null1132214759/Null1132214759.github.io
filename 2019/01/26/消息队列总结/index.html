@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Best Mind" />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -95,16 +95,25 @@
 
 
 
-<meta name="description" content="Not everything can be keep in mind, so there is convenience to review">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Easy Blog">
-<meta property="og:url" content="http://nildeveloper.cn/archives/2018/05/index.html">
+<meta name="description" content="消息队列和消息 “消息队列”(Message queue)是在消息的传输过程中保存消息的容器。“消息” 是在两台计算机间传送的数据单位。消息可以非常简单，例如只包含文本字符串；也可以更复杂，可能包含嵌入对象。  消息队列又称消息中间件（区别于本地消息队列，本地消息队列指的是JVM内的队列实现） ，是一种独立的队列系统，消息中间件经常用来解决内部服务之间的 异步调用问题  常见的消息队列当前使用较多">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="消息队列总结">
+<meta property="og:url" content="http://nildeveloper.cn/2019/01/26/消息队列总结/index.html">
 <meta property="og:site_name" content="Easy Blog">
-<meta property="og:description" content="Not everything can be keep in mind, so there is convenience to review">
+<meta property="og:description" content="消息队列和消息 “消息队列”(Message queue)是在消息的传输过程中保存消息的容器。“消息” 是在两台计算机间传送的数据单位。消息可以非常简单，例如只包含文本字符串；也可以更复杂，可能包含嵌入对象。  消息队列又称消息中间件（区别于本地消息队列，本地消息队列指的是JVM内的队列实现） ，是一种独立的队列系统，消息中间件经常用来解决内部服务之间的 异步调用问题  常见的消息队列当前使用较多">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://nildeveloper.cn/2019/01/26/消息队列总结/">
+<meta property="og:image" content="http://nildeveloper.cn/2019/01/26/消息队列总结/mq1.jpg">
+<meta property="og:image" content="http://nildeveloper.cn/2019/01/26/消息队列总结/">
+<meta property="og:image" content="http://nildeveloper.cn/2019/01/26/消息队列总结/mq3.jpg">
+<meta property="og:image" content="http://nildeveloper.cn/2019/01/26/消息队列总结/">
+<meta property="og:image" content="http://nildeveloper.cn/2019/01/26/消息队列总结/mq2.jpg">
+<meta property="og:updated_time" content="2019-01-26T04:34:04.544Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Easy Blog">
-<meta name="twitter:description" content="Not everything can be keep in mind, so there is convenience to review">
+<meta name="twitter:title" content="消息队列总结">
+<meta name="twitter:description" content="消息队列和消息 “消息队列”(Message queue)是在消息的传输过程中保存消息的容器。“消息” 是在两台计算机间传送的数据单位。消息可以非常简单，例如只包含文本字符串；也可以更复杂，可能包含嵌入对象。  消息队列又称消息中间件（区别于本地消息队列，本地消息队列指的是JVM内的队列实现） ，是一种独立的队列系统，消息中间件经常用来解决内部服务之间的 异步调用问题  常见的消息队列当前使用较多">
+<meta name="twitter:image" content="http://nildeveloper.cn/2019/01/26/消息队列总结/">
 
 
 
@@ -134,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://nildeveloper.cn/archives/2018/05/"/>
+  <link rel="canonical" href="http://nildeveloper.cn/2019/01/26/消息队列总结/"/>
 
 
 
 
 
-  <title>归档 | Easy Blog</title>
+  <title>消息队列总结 | Easy Blog</title>
   
 
 
@@ -159,7 +168,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -297,288 +306,271 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nildeveloper.cn/2019/01/26/消息队列总结/">
 
-      
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="nil">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Easy Blog">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h2 class="post-title" itemprop="name headline">消息队列总结</h2>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-26T11:39:58+08:00">
+                2019-01-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/21/Java反射在数据访问中的应用/" itemprop="url">
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="name">Java反射在数据访问中的应用</span>
+                <span class="post-meta-item-text">分类于</span>
               
-            </a>
-        
-      </h3>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-21T17:21:56+08:00"
-              content="2018-05-21" >
-          05-21
-        </time>
-      </div>
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/架构/" itemprop="url" rel="index">
+                    <span itemprop="name">架构</span>
+                  </a>
+                </span>
 
-    </header>
-  </article>
+                
+                
+              
+            </span>
+          
 
+          
+            
+          
 
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/17/iframe嵌套界面自适应/" itemprop="url">
-              
-                <span itemprop="name">iframe嵌套界面自适应</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-17T20:41:20+08:00"
-              content="2018-05-17" >
-          05-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/15/关于ajax异步请求的使用/" itemprop="url">
-              
-                <span itemprop="name">关于ajax异步请求的使用</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-15T17:00:55+08:00"
-              content="2018-05-15" >
-          05-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h2 id="消息队列和消息"><a href="#消息队列和消息" class="headerlink" title="消息队列和消息"></a>消息队列和消息</h2><blockquote>
+<p><strong>“消息队列”</strong>(Message queue)是在消息的传输过程中保存消息的容器。<strong>“消息”</strong> 是在两台计算机间传送的数据单位。消息可以非常简单，例如只包含文本字符串；也可以更复杂，可能包含嵌入对象。</p>
+</blockquote>
+<p>消息队列又称<strong>消息中间件（区别于本地消息队列，本地消息队列指的是JVM内的队列实现）</strong> ，是一种独立的队列系统，消息中间件经常用来解决内部服务之间的 <strong>异步调用问题</strong> </p>
+<h2 id="常见的消息队列"><a href="#常见的消息队列" class="headerlink" title="常见的消息队列"></a>常见的消息队列</h2><p>当前使用较多的消息队列有<strong>RabbitMQ</strong>、<strong>ActiveMQ</strong>、<strong>RocketMQ</strong>、<strong>Kafka</strong>等等，当然redis数据库也可以实现消息队列，不过不推荐，redis本身设计就不是用来做消息队列的。</p>
+<h2 id="消息队列使用场景"><a href="#消息队列使用场景" class="headerlink" title="消息队列使用场景"></a>消息队列使用场景</h2><ul>
+<li><p><strong>异步调用：</strong></p>
+<p><img src="/2019/01/26/消息队列总结/" alt="使用消息队列的服务器"></p>
+<p><img src="/2019/01/26/消息队列总结/mq1.jpg" alt="mq1"></p>
+</li>
+</ul>
+<p>​    <strong>在不使用消息队列服务器的时候，用户的请求数据直接写入数据库，在高并发的情况下数据库压力剧增，使得响应速度变慢。但是在使用消息队列之后，用户的请求数据发送给消息队列之后立即 返回，再由消息队列的消费者进程从消息队列中获取数据，异步写入数据库。由于消息队列服务器处理速度快于数据库（消息队列也比数据库有更好的伸缩性），因此响应速度得到大幅改善。</strong></p>
+<ul>
+<li><p><strong>解耦 ：</strong> 一个业务的非核心流程需要依赖其他系统，但结果并不重要，有通知即可。</p>
+<p><strong>分布式系统模块之间耦合的两种方式：分布式消息队列 和 分布式服务</strong></p>
+<ul>
+<li><p><strong>分布式服务</strong>： <strong>SOA</strong>（<strong>Service Oriented Architecture面向服务体系结构</strong> ）</p>
+<p>Dubbo 等分布式服务框架</p>
+</li>
+<li><p><strong>分布式消息队列：事件驱动架构（生产者—消费者   发布—订阅）</strong></p>
+</li>
+</ul>
+<p><img src="/2019/01/26/消息队列总结/" alt="事件驱动架构"></p>
+<p><img src="/2019/01/26/消息队列总结/mq3.jpg" alt="mq3"></p>
+<p>​    消息队列使利用<strong>发布-订阅模式</strong>工作<strong>，消息发送者（生产者）发布消息，一个或多个消息接受者（消费者）订阅消息</strong>。 从上图可以看到<strong>消息发送者（生产者）和消息接受者（消费者）之间没有直接耦合</strong>，消息发送者将消息发送至<strong>分布式消息队列</strong>即结束对消息的处理，消息接受者从<strong>分布式消息队列</strong>获取该消息后进行后续处理，并不需要知道该消息从何而来。对新增业务，只要对该类消息感兴趣，即可<strong>订阅</strong>该消息，对原有系统和业务没有任何影响，从而实现网站业务的<strong>可扩展性设计</strong>。</p>
+<p>​    <strong>另外为了避免消息队列服务器宕机造成消息丢失，会将成功发送到消息队列的消息存储在消息生产者服务器上，等消息真正被消费者服务器处理后才删除消息。在消息队列服务器宕机后，生产者服务器会选择分布式消息队列服务器集群中的其他服务器发布消息。</strong> </p>
+</li>
+<li><p><strong>最终一致性 ：</strong> 指的是两个系统的状态保持一致，可以有一定的延迟，只要最终达到一致性即可。经常用在解决分布式事务上。</p>
+</li>
+<li><p><strong>广播 ：</strong> 消息队列最基本的功能。生产者只负责生产消息，订阅者接收消息。</p>
+</li>
+<li><p><strong>错峰和流控</strong></p>
+<p><img src="/2019/01/26/消息队列总结/" alt="使用消息队列消除并发访问"></p>
+<p><img src="/2019/01/26/消息队列总结/mq2.jpg" alt="mq2"></p>
+</li>
+</ul>
+<p>​    <strong>消息队列具有很好的削峰作用的功能</strong>——即<strong>通过异步处理，将短时间高并发产生的事务消息存储在消息队列中，从而削平高峰期的并发事务。</strong> （秒杀、抢购、抢票等）</p>
+<h2 id="常见消息队列介绍"><a href="#常见消息队列介绍" class="headerlink" title="常见消息队列介绍"></a>常见消息队列介绍</h2><ul>
+<li><p><strong>ActiveMQ：</strong> ActiveMQ是Apache出品，最流行的，能力强劲的开源消息总线。ActiveMQ是一个完全支持JMS1.1和J2EE 1.4规范的JMSProvider实现,尽管JMS规范出台已经是很久的事情了,但是JMS在当今的J2EE应用中间仍然扮演着特殊的地位。</p>
+<p>官网：<a href="http://activemq.apache.org/" target="_blank" rel="noopener">http://activemq.apache.org/</a></p>
+<p>具体可以参考：</p>
+<p><a href="https://blog.csdn.net/qq_34337272/article/details/80031702" target="_blank" rel="noopener">《消息队列ActiveMQ的使用详解》</a></p>
+</li>
+<li><p><strong>RabbitMQ:</strong> RabbitMQ 是一个由 Erlang 语言开发的 AMQP 的开源实现。RabbitMQ 最初起源于金融系统，用于在分布式系统中存储转发消息，在易用性、扩展性、高可用性等方面表现不俗</p>
+<blockquote>
+<p>AMQP ：Advanced Message Queue，高级消息队列协议。它是应用层协议的一个开放标准，为面向消息的中间件设计，基于此协议的客户端与消息中间件可传递消息，并不受产品、开发语言等条件的限制。</p>
+</blockquote>
+<p>官网：<a href="http://www.rabbitmq.com/" target="_blank" rel="noopener">http://www.rabbitmq.com/</a></p>
+<p>具体可以参考：</p>
+<p><a href="https://www.jianshu.com/p/79ca08116d57" target="_blank" rel="noopener">《消息队列之 RabbitMQ》</a></p>
+</li>
+<li><p><strong>RocketMQ：</strong>RocketMQ是阿里开源的消息中间件，目前在Apache孵化，使用纯Java开发，具有高吞吐量、高可用性、适合大规模分布式系统应用的特点。RocketMQ思路起源于Kafka，但并不是简单的复制，它对消息的可靠传输及事务性做了优化，目前在阿里集团被广泛应用于交易、充值、流计算、消息推送、日志流式处理、binglog分发等场景，支撑了阿里多次双十一活动。</p>
+<p>官网：<a href="http://rocketmq.apache.org/" target="_blank" rel="noopener">http://rocketmq.apache.org/</a></p>
+<p>具体可以参考：</p>
+<p><a href="https://www.jianshu.com/p/824066d70da8" target="_blank" rel="noopener">《RocketMQ 实战之快速入门》</a></p>
+<p><a href="http://jm.taobao.org/2017/01/12/rocketmq-quick-start-in-10-minutes/" target="_blank" rel="noopener">《十分钟入门RocketMQ》</a> （阿里中间件团队博客）</p>
+</li>
+<li><p><strong>Kafka</strong>：Kafka是一个分布式的、可分区的、可复制的、基于发布/订阅的消息系统（现在官方的描述是“一个分布式流平台”），由Scala和Java编写 ，Kafka主要用于大数据领域，当然在分布式系统中也有应用。目前市面上流行的消息队列RocketMQ就是阿里借鉴Kafka的原理、用Java开发而得。Kafka的目的是通过Hadoop的并行加载机制来统一线上和离线的消息处理，也是为了通过集群来提供实时的消息。 </p>
+<p>官网：<a href="http://kafka.apache.org/" target="_blank" rel="noopener">http://kafka.apache.org/</a></p>
+<p>具体可以参考：</p>
+<p><a href="http://book.51cto.com/art/201801/565244.htm" target="_blank" rel="noopener">《Kafka应用场景》</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzU4NDQ4MzU5OA==&amp;mid=2247484106&amp;idx=1&amp;sn=aa1999895d009d91eb3692a3e6429d18&amp;chksm=fd9854abcaefddbd1101ca5dc2c7c783d7171320d6300d9b2d8e68b7ef8abd2b02ea03e03600#rd" target="_blank" rel="noopener">《初谈Kafka》</a></p>
+</li>
+</ul>
+<h2 id="性能对比："><a href="#性能对比：" class="headerlink" title="性能对比："></a>性能对比：</h2><p><a href="https://mp.weixin.qq.com/s?__biz=MzU5OTMyODAyNg==&amp;mid=2247484721&amp;idx=1&amp;sn=11e4e29886e581dd328311d308ccc068&amp;chksm=feb7d144c9c058529465b02a4e26a25ef76b60be8984ace9e4a0f5d3d98ca52e014ecb73b061&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">《Kafka、RabbitMQ、RocketMQ等消息中间件的对比 —— 消息发送性能和区别》</a> </p>
+<h2 id="最后："><a href="#最后：" class="headerlink" title="最后："></a>最后：</h2><p><strong>文章参考：</strong></p>
+<p><a href="https://blog.csdn.net/qq_34337272/article/details/80029918" target="_blank" rel="noopener">消息队列深入解析</a></p>
+<p><a href="https://github.com/Snailclimb/JavaGuide/blob/master/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8E%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1(RESTful%E3%80%81RPC%E3%80%81%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97" target="_blank" rel="noopener">消息中间件</a>.md)</p>
+<p><strong>感谢原作者：SnailClimb</strong></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/13/Java反射基础/" itemprop="url">
-              
-                <span itemprop="name">Java反射基础</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-13T16:10:46+08:00"
-              content="2018-05-13" >
-          05-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/13/Java Web中路径访问问题/" itemprop="url">
-              
-                <span itemprop="name">Java web中路径访问问题</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-13T15:58:04+08:00"
-              content="2018-05-13" >
-          05-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/13/JS表单校验实例/" itemprop="url">
-              
-                <span itemprop="name">JS表单校验实例</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-13T15:41:51+08:00"
-              content="2018-05-13" >
-          05-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/10/Hello World/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-10T22:16:13+08:00"
-              content="2018-05-10" >
-          05-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    nil
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://nildeveloper.cn/2019/01/26/消息队列总结/" title="消息队列总结">http://nildeveloper.cn/2019/01/26/消息队列总结/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      <div>
+      
+        
+      
+      </div>
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/26/高性能远程服务调用框架-Dubbo/" rel="next" title="高性能远程服务调用框架-Dubbo">
+                <i class="fa fa-chevron-left"></i> 高性能远程服务调用框架-Dubbo
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -586,6 +578,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -608,8 +604,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -699,6 +704,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#消息队列和消息"><span class="nav-number">1.</span> <span class="nav-text">消息队列和消息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见的消息队列"><span class="nav-number">2.</span> <span class="nav-text">常见的消息队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息队列使用场景"><span class="nav-number">3.</span> <span class="nav-text">消息队列使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见消息队列介绍"><span class="nav-number">4.</span> <span class="nav-text">常见消息队列介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能对比："><span class="nav-number">5.</span> <span class="nav-text">性能对比：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后："><span class="nav-number">6.</span> <span class="nav-text">最后：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -826,11 +847,6 @@
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
 
 
   
