@@ -103,17 +103,14 @@
 <meta property="og:site_name" content="Easy Blog">
 <meta property="og:description" content="消息队列和消息 “消息队列”(Message queue)是在消息的传输过程中保存消息的容器。“消息” 是在两台计算机间传送的数据单位。消息可以非常简单，例如只包含文本字符串；也可以更复杂，可能包含嵌入对象。  消息队列又称消息中间件（区别于本地消息队列，本地消息队列指的是JVM内的队列实现） ，是一种独立的队列系统，消息中间件经常用来解决内部服务之间的 异步调用问题  常见的消息队列当前使用较多">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://nildeveloper.cn/2019/01/26/消息队列总结/">
 <meta property="og:image" content="http://nildeveloper.cn/2019/01/26/消息队列总结/mq1.jpg">
-<meta property="og:image" content="http://nildeveloper.cn/2019/01/26/消息队列总结/">
 <meta property="og:image" content="http://nildeveloper.cn/2019/01/26/消息队列总结/mq3.jpg">
-<meta property="og:image" content="http://nildeveloper.cn/2019/01/26/消息队列总结/">
 <meta property="og:image" content="http://nildeveloper.cn/2019/01/26/消息队列总结/mq2.jpg">
-<meta property="og:updated_time" content="2019-01-26T04:34:04.544Z">
+<meta property="og:updated_time" content="2019-01-26T04:37:41.463Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="消息队列总结">
 <meta name="twitter:description" content="消息队列和消息 “消息队列”(Message queue)是在消息的传输过程中保存消息的容器。“消息” 是在两台计算机间传送的数据单位。消息可以非常简单，例如只包含文本字符串；也可以更复杂，可能包含嵌入对象。  消息队列又称消息中间件（区别于本地消息队列，本地消息队列指的是JVM内的队列实现） ，是一种独立的队列系统，消息中间件经常用来解决内部服务之间的 异步调用问题  常见的消息队列当前使用较多">
-<meta name="twitter:image" content="http://nildeveloper.cn/2019/01/26/消息队列总结/">
+<meta name="twitter:image" content="http://nildeveloper.cn/2019/01/26/消息队列总结/mq1.jpg">
 
 
 
@@ -427,7 +424,6 @@
 <h2 id="常见的消息队列"><a href="#常见的消息队列" class="headerlink" title="常见的消息队列"></a>常见的消息队列</h2><p>当前使用较多的消息队列有<strong>RabbitMQ</strong>、<strong>ActiveMQ</strong>、<strong>RocketMQ</strong>、<strong>Kafka</strong>等等，当然redis数据库也可以实现消息队列，不过不推荐，redis本身设计就不是用来做消息队列的。</p>
 <h2 id="消息队列使用场景"><a href="#消息队列使用场景" class="headerlink" title="消息队列使用场景"></a>消息队列使用场景</h2><ul>
 <li><p><strong>异步调用：</strong></p>
-<p><img src="/2019/01/26/消息队列总结/" alt="使用消息队列的服务器"></p>
 <p><img src="/2019/01/26/消息队列总结/mq1.jpg" alt="mq1"></p>
 </li>
 </ul>
@@ -442,7 +438,6 @@
 <li><p><strong>分布式消息队列：事件驱动架构（生产者—消费者   发布—订阅）</strong></p>
 </li>
 </ul>
-<p><img src="/2019/01/26/消息队列总结/" alt="事件驱动架构"></p>
 <p><img src="/2019/01/26/消息队列总结/mq3.jpg" alt="mq3"></p>
 <p>​    消息队列使利用<strong>发布-订阅模式</strong>工作<strong>，消息发送者（生产者）发布消息，一个或多个消息接受者（消费者）订阅消息</strong>。 从上图可以看到<strong>消息发送者（生产者）和消息接受者（消费者）之间没有直接耦合</strong>，消息发送者将消息发送至<strong>分布式消息队列</strong>即结束对消息的处理，消息接受者从<strong>分布式消息队列</strong>获取该消息后进行后续处理，并不需要知道该消息从何而来。对新增业务，只要对该类消息感兴趣，即可<strong>订阅</strong>该消息，对原有系统和业务没有任何影响，从而实现网站业务的<strong>可扩展性设计</strong>。</p>
 <p>​    <strong>另外为了避免消息队列服务器宕机造成消息丢失，会将成功发送到消息队列的消息存储在消息生产者服务器上，等消息真正被消费者服务器处理后才删除消息。在消息队列服务器宕机后，生产者服务器会选择分布式消息队列服务器集群中的其他服务器发布消息。</strong> </p>
@@ -452,7 +447,6 @@
 <li><p><strong>广播 ：</strong> 消息队列最基本的功能。生产者只负责生产消息，订阅者接收消息。</p>
 </li>
 <li><p><strong>错峰和流控</strong></p>
-<p><img src="/2019/01/26/消息队列总结/" alt="使用消息队列消除并发访问"></p>
 <p><img src="/2019/01/26/消息队列总结/mq2.jpg" alt="mq2"></p>
 </li>
 </ul>
