@@ -103,18 +103,18 @@
 <meta property="og:site_name" content="Easy Blog">
 <meta property="og:description" content="用JRebel和LiveRebel执行热部署前言​    有人问：Java是解释型语言还是编译型语言？你可以毫不犹豫的告诉他：都是！Java是一种静态类型、动态编译、面向对象的语言”。 当然，这里所谓的编译可不是 .java 源文件编译为 .class 文件的过程，而是 .class 文件被JVM解释后会被即时编译（JITing）。当然，这不是今天要讨论的重点。    由于Java是编译型语言，也">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://nildeveloper.cn/2018/06/03/用JRebel和LiveRebel执行热部署/img/JRebel1.png">
-<meta property="og:image" content="http://nildeveloper.cn/2018/06/03/用JRebel和LiveRebel执行热部署/img/JRebel2.png">
-<meta property="og:image" content="http://nildeveloper.cn/2018/06/03/用JRebel和LiveRebel执行热部署/img/JRebel3.png">
-<meta property="og:image" content="http://nildeveloper.cn/2018/06/03/用JRebel和LiveRebel执行热部署/img/JRebel4.png">
-<meta property="og:image" content="http://nildeveloper.cn/2018/06/03/用JRebel和LiveRebel执行热部署/img/JRebel5.png">
-<meta property="og:image" content="http://nildeveloper.cn/2018/06/03/用JRebel和LiveRebel执行热部署/img/JRebel7.png">
-<meta property="og:image" content="http://nildeveloper.cn/2018/06/03/用JRebel和LiveRebel执行热部署/img/JRebel6.png">
-<meta property="og:updated_time" content="2019-01-09T05:51:22.756Z">
+<meta property="og:image" content="http://nildeveloper.cn/2018/06/03/用JRebel和LiveRebel执行热部署/JRebel1.png">
+<meta property="og:image" content="http://nildeveloper.cn/2018/06/03/用JRebel和LiveRebel执行热部署/JRebel2.png">
+<meta property="og:image" content="http://nildeveloper.cn/2018/06/03/用JRebel和LiveRebel执行热部署/JRebel3.png">
+<meta property="og:image" content="http://nildeveloper.cn/2018/06/03/用JRebel和LiveRebel执行热部署/JRebel4.png">
+<meta property="og:image" content="http://nildeveloper.cn/2018/06/03/用JRebel和LiveRebel执行热部署/JRebel5.png">
+<meta property="og:image" content="http://nildeveloper.cn/2018/06/03/用JRebel和LiveRebel执行热部署/JRebel7.png">
+<meta property="og:image" content="http://nildeveloper.cn/2018/06/03/用JRebel和LiveRebel执行热部署/JRebel6.png">
+<meta property="og:updated_time" content="2019-02-01T07:07:28.397Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用JRebel和LiveRebel执行热部署">
 <meta name="twitter:description" content="用JRebel和LiveRebel执行热部署前言​    有人问：Java是解释型语言还是编译型语言？你可以毫不犹豫的告诉他：都是！Java是一种静态类型、动态编译、面向对象的语言”。 当然，这里所谓的编译可不是 .java 源文件编译为 .class 文件的过程，而是 .class 文件被JVM解释后会被即时编译（JITing）。当然，这不是今天要讨论的重点。    由于Java是编译型语言，也">
-<meta name="twitter:image" content="http://nildeveloper.cn/2018/06/03/用JRebel和LiveRebel执行热部署/img/JRebel1.png">
+<meta name="twitter:image" content="http://nildeveloper.cn/2018/06/03/用JRebel和LiveRebel执行热部署/JRebel1.png">
 
 
 
@@ -420,29 +420,29 @@
 <li>启动web服务器</li>
 </ul>
 <p>因此浪费很多的时间，而我们首先应该想到的应该就是 “热部署”！</p>
-<h2 id="JRebel"><a href="#JRebel" class="headerlink" title="JRebel"></a><a href="https://zeroturnaround.com/software/jrebel/" target="_blank" rel="noopener">JRebel</a></h2><p><a href="https://zeroturnaround.com/software/jrebel/" target="_blank" rel="noopener">https://zeroturnaround.com/software/jrebel/</a></p>
+<h2 id="JRebel"><a href="#JRebel" class="headerlink" title="JRebel"></a>JRebel</h2><p><a href="https://zeroturnaround.com/software/jrebel/" target="_blank" rel="noopener">https://zeroturnaround.com/software/jrebel/</a></p>
 <p>  JRebel处于IDE和Web服务器之间，当源代码发生变化时能自动将这些变化反映到正在运行的Web服务器上（LibeRebel用于生产环境的不熟）。这种热部署没有什么问题，并且这些工具实际上是解决热部署问题的行业标准。</p>
-<h3 id="安装IDEA-JRebel插件"><a href="#安装IDEA-JRebel插件" class="headerlink" title="安装IDEA JRebel插件"></a>安装IDEA JRebel插件</h3><p><img src="/2018/06/03/用JRebel和LiveRebel执行热部署/img/JRebel1.png" alt="图片"></p>
-<ol>
-<li><p>当然是先去网站注册了，注册可以获得 14 天的免费使用，14天之后。。。。。。。</p>
-<p><img src="/2018/06/03/用JRebel和LiveRebel执行热部署/img/JRebel2.png" alt="图片"></p>
-</li>
+<h3 id="安装IDEA-JRebel插件"><a href="#安装IDEA-JRebel插件" class="headerlink" title="安装IDEA JRebel插件"></a>安装IDEA JRebel插件</h3><ol>
+<li>当然是先去网站注册了，注册可以获得 14 天的免费使用，14天之后。。。。。。。<img src="/2018/06/03/用JRebel和LiveRebel执行热部署/JRebel1.png" alt="图片"></li>
+</ol>
+<ol start="2">
 <li><p>注册完成后就来IDEA 插件仓库下载JRebel插件吧</p>
-<p><img src="/2018/06/03/用JRebel和LiveRebel执行热部署/img/JRebel3.png" alt="图片"></p>
+<p><img src="/2018/06/03/用JRebel和LiveRebel执行热部署/JRebel2.png" alt="图片"></p>
+<p><img src="/2018/06/03/用JRebel和LiveRebel执行热部署/JRebel3.png" alt="图片"></p>
 </li>
 <li><p>插件安装完成后，在IDEA导航栏的help菜单下会看到 JRebel 选项，选择后去激活插件</p>
-<p><img src="/2018/06/03/用JRebel和LiveRebel执行热部署/img/JRebel4.png" alt="图片"></p>
+<p><img src="/2018/06/03/用JRebel和LiveRebel执行热部署/JRebel4.png" alt="图片"></p>
 </li>
 <li><p>插件激活后你就会看到多了两个绿色的小按钮，前面是run  后面是debug</p>
-<p><img src="/2018/06/03/用JRebel和LiveRebel执行热部署/img/JRebel5.png" alt="图片"></p>
+<p><img src="/2018/06/03/用JRebel和LiveRebel执行热部署/JRebel5.png" alt="图片"></p>
 </li>
 <li><p>在IDEA窗口左侧勾选要运行的项目</p>
 </li>
-<li><p><img src="/2018/06/03/用JRebel和LiveRebel执行热部署/img/JRebel7.png" alt="图片"></p>
+<li><p><img src="/2018/06/03/用JRebel和LiveRebel执行热部署/JRebel7.png" alt="图片"></p>
 </li>
 <li><p>调整一下tomcat设置</p>
 </li>
-<li><p><img src="/2018/06/03/用JRebel和LiveRebel执行热部署/img/JRebel6.png" alt="图片"></p>
+<li><p><img src="/2018/06/03/用JRebel和LiveRebel执行热部署/JRebel6.png" alt="图片"></p>
 </li>
 <li><p>最后，就可以愉快的debug了！  </p>
 </li>
@@ -594,7 +594,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
