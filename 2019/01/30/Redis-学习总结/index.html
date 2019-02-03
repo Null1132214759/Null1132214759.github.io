@@ -106,7 +106,12 @@
 <meta property="og:image" content="http://nildeveloper.cn/2019/01/30/Redis-学习总结/1.bmp">
 <meta property="og:image" content="http://nildeveloper.cn/2019/01/30/Redis-学习总结/2.bmp">
 <meta property="og:image" content="http://nildeveloper.cn/2019/01/30/Redis-学习总结/3.jpg">
-<meta property="og:updated_time" content="2019-02-01T06:40:30.612Z">
+<meta property="og:image" content="http://nildeveloper.cn/2019/01/30/Redis-学习总结/4.jpg">
+<meta property="og:image" content="http://nildeveloper.cn/2019/01/30/Redis-学习总结/5.bmp">
+<meta property="og:image" content="http://nildeveloper.cn/2019/01/30/Redis-学习总结/6.bmp">
+<meta property="og:image" content="http://nildeveloper.cn/2019/01/30/Redis-学习总结/7.PNG">
+<meta property="og:image" content="http://nildeveloper.cn/2019/01/30/Redis-学习总结/8.jpg">
+<meta property="og:updated_time" content="2019-02-03T12:50:51.752Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis 学习总结">
 <meta name="twitter:description" content="NoSQL 是什么？NoSQL(NoSQL = Not Only SQL )，意即“不仅仅是SQL”，泛指非关系型的数据库。随着互联网web2.0网站的兴起，传统的关系数据库在应付web2.0网站，特别是超大规模和高并发的SNS类型的web2.0纯动态网站已经显得力不从心，暴露了很多难以克服的问题，而非关系型的数据库则由于其本身的特点得到了非常迅速的发展。NoSQL数据库的产生就是为了解决大规模数">
@@ -500,6 +505,96 @@
 <li>优势：适合大规模的数据恢复；对数据完整性和一致性要求不高</li>
 <li>劣势：在一定间隔时间做一次备份，所以如果redis意外down掉的话，就会丢失最后一次快照后的所有修改；Fork的时候，内存中的数据被克隆了一份，大致2倍的膨胀性需要考虑</li>
 </ul>
+<h2 id="2-AOF"><a href="#2-AOF" class="headerlink" title="2. AOF"></a>2. AOF</h2><h3 id="是什么？-1"><a href="#是什么？-1" class="headerlink" title="是什么？"></a>是什么？</h3><p>以日志的形式来记录每个<strong>写操作</strong>，将Redis执行过的所有<strong>写指令记录下来</strong>(读操作不记录)，只许<strong>追加文件</strong>但不可以改写文件。</p>
+<h3 id="怎么做？-1"><a href="#怎么做？-1" class="headerlink" title="怎么做？"></a>怎么做？</h3><p>开启AOF持久化后每执行一条会更改Redis中的数据的命令，Redis就会将该命令写入硬盘中的<strong>AOF文件</strong>。AOF文件的保存位置和RDB文件的位置相同，都是通过dir参数设置的，默认的文件名是<strong>appendonly.aof</strong>。 </p>
+<p>redis启动之初会读取该文件重新构建数据，换言之，<strong>redis重启的话就根据日志文件的内容将写指令从前到后执行一次以完成数据的恢复工作。</strong></p>
+<h3 id="如何配置？-1"><a href="#如何配置？-1" class="headerlink" title="如何配置？"></a>如何配置？</h3><p>默认情况下Redis没有开启<strong>AOF（append only file）</strong>方式的持久化，可以通过appendonly参数开启：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+<h3 id="如何创建？-1"><a href="#如何创建？-1" class="headerlink" title="如何创建？"></a>如何创建？</h3><p>在Redis的配置文件中存在三种不同的 AOF 持久化方式，它们分别是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">appendfsync always     #每次有数据修改发生时都会写入AOF文件,这样会严重降低Redis的速度</span><br><span class="line">appendfsync everysec   #每秒钟同步一次，显示地将多个写命令同步到硬盘</span><br><span class="line">appendfsync no         #让操作系统决定何时进行同步</span><br></pre></td></tr></table></figure>
+<h3 id="如何恢复？-1"><a href="#如何恢复？-1" class="headerlink" title="如何恢复？"></a>如何恢复？</h3><ol>
+<li>修改默认的appendonly no，改为yes</li>
+<li>将有数据的aof文件复制一份保存到对应目录(config get dir)</li>
+<li>恢复：重启redis然后重新加载</li>
+</ol>
+<p><strong>注意：若AOF 文件损坏，可使用Redis-check-aof –fix进行修复</strong></p>
+<h3 id="优劣势？-1"><a href="#优劣势？-1" class="headerlink" title="优劣势？"></a>优劣势？</h3><ul>
+<li><p>优势：AOF 文件有序保存了对数据库执行的所有写入操作，这些写入操作以Redis 协议的格式保存，</p>
+<p>因此文件内容便于读懂并进行分析</p>
+</li>
+<li><p>劣势：相同数据集的数据，aof文件体积远大于rdb文件体积；根据所使用的fsync策略，AOF的速度可能会慢于RDB（每秒同步策略效率较好，不同步效率和rdb相同）</p>
+</li>
+</ul>
+<h3 id="AOF-重写（Rewrite）"><a href="#AOF-重写（Rewrite）" class="headerlink" title="AOF 重写（Rewrite）"></a>AOF 重写（Rewrite）</h3><p>AOF采用<strong>文件追加方式</strong>，文件会越来越大。为避免出现此种情况，新增了<strong>重写机制</strong>,当AOF文件的大小超过所设定的<strong>阈值</strong>时，Redis就会启动AOF文件的内容压缩，只保留可以恢复数据的最小指令集。可以使用BGREWRITEAOF命令（与BGSAVE创建快照原理十分相似 ）。</p>
+<p>举例：假设用户对Redis设置了如下配置选项并且启用了AOF持久化。那么当AOF文件体积大于64mb，并且AOF的体积比上一次重写之后的体积大了至少一倍（100%）的时候，Redis将执行BGREWRITEAOF命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">auto-aof-rewrite-percentage 100  </span><br><span class="line">auto-aof-rewrite-min-size 64mb</span><br></pre></td></tr></table></figure>
+<p><strong>原理：</strong></p>
+<p>AOF文件持续增长而过大时，会fork出一条新进程来将文件重写(也是先写临时文件最后再rename)，遍历新进程的内存中数据，每条记录有一条的Set语句。重写aof文件的操作，并没有读取旧的aof文件，而是将整个内存中的数据库内容用命令的方式重写了一个新的aof文件，替换旧的AOF文件 ，以此完成AOF文件重写操作 </p>
+<p><img src="/2019/01/30/Redis-学习总结/4.jpg" alt="rewrite原理"></p>
+<h3 id="Redis-4-0-对于持久化机制的优化"><a href="#Redis-4-0-对于持久化机制的优化" class="headerlink" title="Redis 4.0 对于持久化机制的优化"></a>Redis 4.0 对于持久化机制的优化</h3><p>Redis 4.0 开始支持 <strong>RDB 和 AOF 的混合持久化</strong>（默认关闭，可以通过配置项 <code>aof-use-rdb-preamble</code> 开启）。</p>
+<p>如果把混合持久化打开，<strong>AOF 重写的时候就直接把 RDB 的内容写到 AOF 文件开头</strong>。这样做的好处是可以结合 RDB 和 AOF 的优点, 快速加载同时避免丢失过多的数据。当然缺点也是有的， AOF 里面的 RDB 部分就是压缩格式不再是 AOF 格式，可读性较差。 </p>
+<h1 id="Redis-事务"><a href="#Redis-事务" class="headerlink" title="Redis 事务"></a>Redis 事务</h1><p>Redis事务提供了一种将多个命令请求打包，在一个队列中<strong>一次性、顺序性、排他性</strong>的执行一系列的命令。在事务执行期间，服务器<strong>不会中断事务而改去执行其他客户端的命令请求</strong>，它会将事务中的所有命令都执行完毕，然后才去处理其他客户端的命令请求。 </p>
+<p><strong>常用命令：</strong></p>
+<p><img src="/2019/01/30/Redis-学习总结/5.bmp" alt="Redis 事务常用命令"></p>
+<h2 id="三阶段"><a href="#三阶段" class="headerlink" title="三阶段"></a>三阶段</h2><ol>
+<li>开启：以MULTI开始一个事务</li>
+<li>入队：将多个命令入队到事务中，接到这些命令并不会立即执行，而是放到等待执行的事务队列里面</li>
+<li>执行：由EXEC命令触发事务</li>
+</ol>
+<h2 id="三特性"><a href="#三特性" class="headerlink" title="三特性"></a>三特性</h2><ol>
+<li>单独的隔离操作：事务中的所有命令会被序列化、按顺序执行，在执行的过程中不会被其他客户端发送来的命令打断</li>
+<li>没有隔离级别的概念：队列中的命令在事务没有被提交之前不会被实际执行</li>
+<li>不保证原子性：redis中的一个事务中如果存在命令执行失败，那么其他命令依然会被执行，没有回滚机制</li>
+</ol>
+<h1 id="Redis-的发布订阅"><a href="#Redis-的发布订阅" class="headerlink" title="Redis 的发布订阅"></a>Redis 的发布订阅</h1><p><strong>发布订阅：</strong>进程间的一种消息通信模式：发送者(pub)发送消息，订阅者(sub)接收消息。</p>
+<p><strong>常用命令：</strong></p>
+<p><img src="/2019/01/30/Redis-学习总结/6.bmp" alt="发布订阅"></p>
+<p><strong>注意：</strong> 在做进程间通信是，一般使用专门的<strong>消息队列组件</strong>（ActiveMQ、RabbitMQ、RocketMQ等）</p>
+<p>有关消息队列问题请转移到此处: <a href="http://nildeveloper.cn/2019/01/26/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E6%80%BB%E7%BB%93/">消息队列总结</a></p>
+<h1 id="Redis-主从复制"><a href="#Redis-主从复制" class="headerlink" title="Redis 主从复制"></a>Redis 主从复制</h1><h2 id="是什么？-2"><a href="#是什么？-2" class="headerlink" title="是什么？"></a>是什么？</h2><p>Redis主机数据更新后根据配置和策略，自动同步到备机的master/slaver机制，Master以写为主，Slave以读为主</p>
+<h2 id="能干嘛？"><a href="#能干嘛？" class="headerlink" title="能干嘛？"></a>能干嘛？</h2><ul>
+<li>读写分离</li>
+<li>容灾恢复</li>
+</ul>
+<h2 id="常用三情景"><a href="#常用三情景" class="headerlink" title="常用三情景"></a>常用三情景</h2><ol>
+<li>一主二仆：一个Master两个Slave</li>
+<li>薪火相传：上一个Slave可以是下一个Slave的Master，Slave同样可以接收其他slaves的连接和同步请求，那么该slave作为了链条中下一个的master,可以有效减轻master的写压力</li>
+<li>反客为主：使当前数据库停止与其他数据库的同步，转成主数据库</li>
+</ol>
+<h2 id="复制的原理"><a href="#复制的原理" class="headerlink" title="复制的原理"></a>复制的原理</h2><ol>
+<li><p>Slave启动成功连接到master后会发送一个sync命令</p>
+</li>
+<li><p>Master接到命令启动后台的存盘进程，同时收集所有接收到的用于修改数据集命令，在后台进程执行完毕之后，master将传送整个数据文件到slave,以完成一次完全同步</p>
+</li>
+<li><p>全量复制：slave服务在接收到数据库文件数据后，将其存盘并加载到内存中。</p>
+</li>
+<li><p>增量复制：Master继续将新的所有收集到的修改命令依次传给slave,完成同步</p>
+<p>（但是只要是重新连接master,一次完全同步（全量复制)将被自动执行）</p>
+</li>
+</ol>
+<h2 id="哨兵模式-sentinel"><a href="#哨兵模式-sentinel" class="headerlink" title="哨兵模式(sentinel)"></a>哨兵模式(sentinel)</h2><p>###　是什么？</p>
+<p>反客为主的自动版，能够后台监控主机是否故障，如果故障了根据投票数自动将从库转换为主库</p>
+<h3 id="怎么做？-2"><a href="#怎么做？-2" class="headerlink" title="怎么做？"></a>怎么做？</h3><p><img src="/2019/01/30/Redis-学习总结/7.PNG" alt="实验"></p>
+<h2 id="复制的缺点"><a href="#复制的缺点" class="headerlink" title="复制的缺点"></a>复制的缺点</h2><p><strong>复制延时：</strong>由于所有的写操作都是先在Master上操作，然后同步更新到Slave上，所以从Master同步到Slave机器有一定的<strong>延迟</strong>，当系统很繁忙的时候，<strong>延迟</strong>问题会更加严重，Slave机器数量的增加也会使这个问题更加严重。</p>
+<h1 id="缓存雪崩、缓存穿透和缓存击穿问题"><a href="#缓存雪崩、缓存穿透和缓存击穿问题" class="headerlink" title="缓存雪崩、缓存穿透和缓存击穿问题"></a>缓存雪崩、缓存穿透和缓存击穿问题</h1><h2 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h2><h3 id="是什么？-3"><a href="#是什么？-3" class="headerlink" title="是什么？"></a>是什么？</h3><p>缓存同一时间大面积的失效，所以，后面的请求都会落到数据库上，造成数据库短时间内承受大量请求而崩掉。 </p>
+<h3 id="如何解决？"><a href="#如何解决？" class="headerlink" title="如何解决？"></a>如何解决？</h3><ul>
+<li><strong>事前：</strong>尽量保证整个 redis 集群的高可用性，发现机器宕机尽快补上。选择合适的内存淘汰策略，将缓存失效时间分散开，比如我们可以在原有的失效时间基础上增加一个随机值，比如1-5分钟随机，这样每一个缓存的过期时间的重复率就会降低，就很难引发集体失效的事件。 </li>
+<li><strong>事中：</strong>本地ehcache缓存 + hystrix限流&amp;降级，避免MySQL崩掉</li>
+<li><p><strong>事后：</strong>利用 redis 持久化机制保存的数据尽快恢复缓存</p>
+<p><img src="/2019/01/30/Redis-学习总结/8.jpg" alt="高可用"></p>
+</li>
+</ul>
+<h2 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h2><h3 id="是什么？-4"><a href="#是什么？-4" class="headerlink" title="是什么？"></a>是什么？</h3><p>黑客故意去请求缓存中不存在的数据，导致所有的请求都落到数据库上，造成数据库短时间内承受大量请求而崩掉。 </p>
+<h3 id="如何解决？-1"><a href="#如何解决？-1" class="headerlink" title="如何解决？"></a>如何解决？</h3><ol>
+<li><strong>布隆过滤器</strong>：将所有可能存在的数据哈希到一个足够大的bitmap中，一个一定不存在的数据会被 这个bitmap拦截掉，从而避免了对底层存储系统的查询压力 。</li>
+<li><strong>缓存空结果：</strong>如果一个查询返回的数据为空（不管是数 据不存在，还是系统故障），我们仍然把这个空结果进行缓存，但它的过期时间会很短，最长不超过五分钟。 </li>
+</ol>
+<h2 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h2><h3 id="是什么？-5"><a href="#是什么？-5" class="headerlink" title="是什么？"></a>是什么？</h3><p>对于一些设置了过期时间的key，如果这些key可能会在某些时间点被超高并发地访问，是一种非常“热点”的数据。这个时候，需要考虑一个问题：缓存被“击穿”的问题，<strong>这个和缓存雪崩的区别在于这里针对某一key缓存，前者则是很多key。</strong> </p>
+<p>缓存在某个时间点过期的时候，恰好在这个时间点对这个Key有大量的并发请求过来，这些请求发现缓存过期一般都会从后端DB加载数据并回设到缓存，这个时候大并发的请求可能会瞬间把后端DB压垮。 </p>
+<h1 id="如何保证数据库与缓存数据的一致性"><a href="#如何保证数据库与缓存数据的一致性" class="headerlink" title="如何保证数据库与缓存数据的一致性"></a>如何保证数据库与缓存数据的一致性</h1><p>在使用缓存的过程中，避免不了对数据和缓存进行写入、删除操作，在这个过程中就一定会牵扯数据一致性问题。</p>
+<p>一般来说，在系统不是严格要求缓存与数据库完全一致的情况下，缓存可以稍微跟数据库偶尔有不一致的情况。</p>
+<p><strong>解决方案：</strong>将<strong>读请求</strong>与<strong>写请求</strong>串行化到一个内存队列中去。不过这样做会使得系统吞吐量大幅度降低。</p>
+<p><strong>参考：</strong><a href="https://blog.csdn.net/simba_1986/article/details/77823309" target="_blank" rel="noopener">redis系列之数据库与缓存数据一致性解决方案</a></p>
 
       
     </div>
@@ -725,7 +820,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NoSQL-是什么？"><span class="nav-number">1.</span> <span class="nav-text">NoSQL 是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NoSQL-数据库四大分类"><span class="nav-number">2.</span> <span class="nav-text">NoSQL 数据库四大分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分布式数据库中CAP原理CAP-BASE"><span class="nav-number">3.</span> <span class="nav-text">分布式数据库中CAP原理CAP+BASE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-CAP"><span class="nav-number">3.1.</span> <span class="nav-text">1.CAP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-BASE"><span class="nav-number">3.2.</span> <span class="nav-text">2. BASE</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-是什么？"><span class="nav-number">4.</span> <span class="nav-text">Redis 是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-能干嘛？"><span class="nav-number">5.</span> <span class="nav-text">Redis 能干嘛？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要使用Redis（为什么要使用缓存）？"><span class="nav-number">6.</span> <span class="nav-text">为什么要使用Redis（为什么要使用缓存）？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-高性能"><span class="nav-number">6.1.</span> <span class="nav-text">1. 高性能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-高并发"><span class="nav-number">6.2.</span> <span class="nav-text">2. 高并发</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-与-Memcached-的区别（面试可能会问到）"><span class="nav-number">7.</span> <span class="nav-text">Redis 与 Memcached 的区别（面试可能会问到）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-数据类型及使用场景分析"><span class="nav-number">8.</span> <span class="nav-text">Redis 数据类型及使用场景分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-配置文件redis-conf解析"><span class="nav-number">9.</span> <span class="nav-text">Redis 配置文件redis.conf解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-持久化机制"><span class="nav-number">10.</span> <span class="nav-text">Redis 持久化机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-RDB"><span class="nav-number">10.1.</span> <span class="nav-text">1. RDB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#是什么？"><span class="nav-number">10.1.1.</span> <span class="nav-text">是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么做？"><span class="nav-number">10.1.2.</span> <span class="nav-text">怎么做？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何配置？"><span class="nav-number">10.1.3.</span> <span class="nav-text">如何配置？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何创建？"><span class="nav-number">10.1.4.</span> <span class="nav-text">如何创建？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何恢复？"><span class="nav-number">10.1.5.</span> <span class="nav-text">如何恢复？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优劣势？"><span class="nav-number">10.1.6.</span> <span class="nav-text">优劣势？</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NoSQL-是什么？"><span class="nav-number">1.</span> <span class="nav-text">NoSQL 是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NoSQL-数据库四大分类"><span class="nav-number">2.</span> <span class="nav-text">NoSQL 数据库四大分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分布式数据库中CAP原理CAP-BASE"><span class="nav-number">3.</span> <span class="nav-text">分布式数据库中CAP原理CAP+BASE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-CAP"><span class="nav-number">3.1.</span> <span class="nav-text">1.CAP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-BASE"><span class="nav-number">3.2.</span> <span class="nav-text">2. BASE</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-是什么？"><span class="nav-number">4.</span> <span class="nav-text">Redis 是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-能干嘛？"><span class="nav-number">5.</span> <span class="nav-text">Redis 能干嘛？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要使用Redis（为什么要使用缓存）？"><span class="nav-number">6.</span> <span class="nav-text">为什么要使用Redis（为什么要使用缓存）？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-高性能"><span class="nav-number">6.1.</span> <span class="nav-text">1. 高性能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-高并发"><span class="nav-number">6.2.</span> <span class="nav-text">2. 高并发</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-与-Memcached-的区别（面试可能会问到）"><span class="nav-number">7.</span> <span class="nav-text">Redis 与 Memcached 的区别（面试可能会问到）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-数据类型及使用场景分析"><span class="nav-number">8.</span> <span class="nav-text">Redis 数据类型及使用场景分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-配置文件redis-conf解析"><span class="nav-number">9.</span> <span class="nav-text">Redis 配置文件redis.conf解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-持久化机制"><span class="nav-number">10.</span> <span class="nav-text">Redis 持久化机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-RDB"><span class="nav-number">10.1.</span> <span class="nav-text">1. RDB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#是什么？"><span class="nav-number">10.1.1.</span> <span class="nav-text">是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么做？"><span class="nav-number">10.1.2.</span> <span class="nav-text">怎么做？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何配置？"><span class="nav-number">10.1.3.</span> <span class="nav-text">如何配置？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何创建？"><span class="nav-number">10.1.4.</span> <span class="nav-text">如何创建？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何恢复？"><span class="nav-number">10.1.5.</span> <span class="nav-text">如何恢复？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优劣势？"><span class="nav-number">10.1.6.</span> <span class="nav-text">优劣势？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-AOF"><span class="nav-number">10.2.</span> <span class="nav-text">2. AOF</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#是什么？-1"><span class="nav-number">10.2.1.</span> <span class="nav-text">是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么做？-1"><span class="nav-number">10.2.2.</span> <span class="nav-text">怎么做？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何配置？-1"><span class="nav-number">10.2.3.</span> <span class="nav-text">如何配置？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何创建？-1"><span class="nav-number">10.2.4.</span> <span class="nav-text">如何创建？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何恢复？-1"><span class="nav-number">10.2.5.</span> <span class="nav-text">如何恢复？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优劣势？-1"><span class="nav-number">10.2.6.</span> <span class="nav-text">优劣势？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AOF-重写（Rewrite）"><span class="nav-number">10.2.7.</span> <span class="nav-text">AOF 重写（Rewrite）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-4-0-对于持久化机制的优化"><span class="nav-number">10.2.8.</span> <span class="nav-text">Redis 4.0 对于持久化机制的优化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-事务"><span class="nav-number">11.</span> <span class="nav-text">Redis 事务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#三阶段"><span class="nav-number">11.1.</span> <span class="nav-text">三阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三特性"><span class="nav-number">11.2.</span> <span class="nav-text">三特性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-的发布订阅"><span class="nav-number">12.</span> <span class="nav-text">Redis 的发布订阅</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-主从复制"><span class="nav-number">13.</span> <span class="nav-text">Redis 主从复制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#是什么？-2"><span class="nav-number">13.1.</span> <span class="nav-text">是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#能干嘛？"><span class="nav-number">13.2.</span> <span class="nav-text">能干嘛？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用三情景"><span class="nav-number">13.3.</span> <span class="nav-text">常用三情景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制的原理"><span class="nav-number">13.4.</span> <span class="nav-text">复制的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哨兵模式-sentinel"><span class="nav-number">13.5.</span> <span class="nav-text">哨兵模式(sentinel)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么做？-2"><span class="nav-number">13.5.1.</span> <span class="nav-text">怎么做？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制的缺点"><span class="nav-number">13.6.</span> <span class="nav-text">复制的缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缓存雪崩、缓存穿透和缓存击穿问题"><span class="nav-number">14.</span> <span class="nav-text">缓存雪崩、缓存穿透和缓存击穿问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存雪崩"><span class="nav-number">14.1.</span> <span class="nav-text">缓存雪崩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#是什么？-3"><span class="nav-number">14.1.1.</span> <span class="nav-text">是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解决？"><span class="nav-number">14.1.2.</span> <span class="nav-text">如何解决？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存穿透"><span class="nav-number">14.2.</span> <span class="nav-text">缓存穿透</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#是什么？-4"><span class="nav-number">14.2.1.</span> <span class="nav-text">是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解决？-1"><span class="nav-number">14.2.2.</span> <span class="nav-text">如何解决？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存击穿"><span class="nav-number">14.3.</span> <span class="nav-text">缓存击穿</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#是什么？-5"><span class="nav-number">14.3.1.</span> <span class="nav-text">是什么？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何保证数据库与缓存数据的一致性"><span class="nav-number">15.</span> <span class="nav-text">如何保证数据库与缓存数据的一致性</span></a></li></ol></div>
             
 
           </div>
