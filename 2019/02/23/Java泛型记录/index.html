@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Best Mind" />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -95,16 +95,18 @@
 
 
 
-<meta name="description" content="Not everything can be keep in mind, so there is convenience to review">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Easy Blog">
-<meta property="og:url" content="http://nildeveloper.cn/categories/数据库/index.html">
+<meta name="description" content="什么是泛型中的限定通配符和非限定通配符 ?这是另一个非常流行的Java泛型面试题。限定通配符对类型进行了限制。有两种限定通配符，一种是&amp;lt;? extends T&amp;gt;它通过确保类型必须是T的子类来设定类型的上界，另一种是&amp;lt;? super T&amp;gt;它通过确保类型必须是T的父类来设定类型的下界。泛型类型必须用限定内的类型来进行初始化，否则会导致编译错误。另一方面&amp;lt;?&amp;gt;表示了非">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java泛型记录">
+<meta property="og:url" content="http://nildeveloper.cn/2019/02/23/Java泛型记录/index.html">
 <meta property="og:site_name" content="Easy Blog">
-<meta property="og:description" content="Not everything can be keep in mind, so there is convenience to review">
+<meta property="og:description" content="什么是泛型中的限定通配符和非限定通配符 ?这是另一个非常流行的Java泛型面试题。限定通配符对类型进行了限制。有两种限定通配符，一种是&amp;lt;? extends T&amp;gt;它通过确保类型必须是T的子类来设定类型的上界，另一种是&amp;lt;? super T&amp;gt;它通过确保类型必须是T的父类来设定类型的下界。泛型类型必须用限定内的类型来进行初始化，否则会导致编译错误。另一方面&amp;lt;?&amp;gt;表示了非">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-23T03:09:08.104Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Easy Blog">
-<meta name="twitter:description" content="Not everything can be keep in mind, so there is convenience to review">
+<meta name="twitter:title" content="Java泛型记录">
+<meta name="twitter:description" content="什么是泛型中的限定通配符和非限定通配符 ?这是另一个非常流行的Java泛型面试题。限定通配符对类型进行了限制。有两种限定通配符，一种是&amp;lt;? extends T&amp;gt;它通过确保类型必须是T的子类来设定类型的上界，另一种是&amp;lt;? super T&amp;gt;它通过确保类型必须是T的父类来设定类型的下界。泛型类型必须用限定内的类型来进行初始化，否则会导致编译错误。另一方面&amp;lt;?&amp;gt;表示了非">
 
 
 
@@ -134,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://nildeveloper.cn/categories/数据库/"/>
+  <link rel="canonical" href="http://nildeveloper.cn/2019/02/23/Java泛型记录/"/>
 
 
 
 
 
-  <title>分类: 数据库 | Easy Blog</title>
+  <title>Java泛型记录 | Easy Blog</title>
   
 
 
@@ -159,7 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -297,55 +299,193 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>数据库<small>分类</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://nildeveloper.cn/2019/02/23/Java泛型记录/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="nil">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Easy Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/01/06/高性能MySQL/" itemprop="url">
-              
-                <span itemprop="name">高性能 MySQL</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Java泛型记录</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-01-06T14:35:38+08:00"
-              content="2019-01-06" >
-          01-06
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-23T11:07:10+08:00">
+                2019-02-23
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="什么是泛型中的限定通配符和非限定通配符"><a href="#什么是泛型中的限定通配符和非限定通配符" class="headerlink" title="什么是泛型中的限定通配符和非限定通配符 ?"></a>什么是泛型中的限定通配符和非限定通配符 ?</h2><p>这是另一个非常流行的Java泛型面试题。限定通配符对类型进行了限制。有两种限定通配符，一种是&lt;? extends T&gt;它通过确保类型必须是T的子类来设定类型的上界，另一种是&lt;? super T&gt;它通过确保类型必须是T的父类来设定类型的下界。泛型类型必须用限定内的类型来进行初始化，否则会导致编译错误。另一方面&lt;?&gt;表示了非限定通配符，因为&lt;?&gt;可以用任意类型来替代。更多信息请参阅我的文章泛型中限定通配符和非限定通配符之间的区别。</p>
+<h2 id="List-lt-extends-T-gt-和List-lt-super-T-gt-之间有什么区别"><a href="#List-lt-extends-T-gt-和List-lt-super-T-gt-之间有什么区别" class="headerlink" title="List&lt;? extends T&gt;和List &lt;? super T&gt;之间有什么区别 ?"></a>List&lt;? extends T&gt;和List &lt;? super T&gt;之间有什么区别 ?</h2><p>这和上一个面试题有联系，有时面试官会用这个问题来评估你对泛型的理解，而不是直接问你什么是限定通配符和非限定通配符。这两个List的声明都是限定通配符的例子，List&lt;? extends T&gt;可以接受任何继承自T的类型的List，而List&lt;? super T&gt;可以接受任何T的父类构成的List。例如List&lt;? extends Number&gt;可以接受List<integer>或List<float>。在本段出现的连接中可以找到更多信息。</float></integer></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    nil
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://nildeveloper.cn/2019/02/23/Java泛型记录/" title="Java泛型记录">http://nildeveloper.cn/2019/02/23/Java泛型记录/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      <div>
+      
+        
+      
+      </div>
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/30/Redis-学习总结/" rel="next" title="Redis 学习总结">
+                <i class="fa fa-chevron-left"></i> Redis 学习总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -353,6 +493,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -375,8 +519,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -466,6 +619,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是泛型中的限定通配符和非限定通配符"><span class="nav-number">1.</span> <span class="nav-text">什么是泛型中的限定通配符和非限定通配符 ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List-lt-extends-T-gt-和List-lt-super-T-gt-之间有什么区别"><span class="nav-number">2.</span> <span class="nav-text">List&lt;? extends T&gt;和List &lt;? super T&gt;之间有什么区别 ?</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -590,10 +759,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
